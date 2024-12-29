@@ -109,8 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5370061092641039934}
-  collider: {fileID: 6342175663147405864}
-  lowFrictionMaterial: {fileID: 13400000, guid: 40cfbb4ce1bf5f542b3b949273f6dc98, type: 2}
+  col: {fileID: 6342175663147405864}
   upwardForce: 8
   forwardForce: 8
   torqueMultiplier: 100

@@ -5,8 +5,7 @@ public class CarCrashSimulator : MonoBehaviour
 {
     [Inject] IGameManager _gameManager;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private Collider collider;
-    [SerializeField] private PhysicMaterial lowFrictionMaterial;
+    [SerializeField] private Collider col;
     [SerializeField] private float upwardForce;
     [SerializeField] private float forwardForce;
     [SerializeField] private float torqueMultiplier;
@@ -32,15 +31,20 @@ public class CarCrashSimulator : MonoBehaviour
         if (_isPhysicsActive) return;
         _isPhysicsActive = true;
         rb.isKinematic = false;
-        collider.isTrigger = false;
+        col.isTrigger = false;
+        ApplyRandomTorque();
+        ApplyForce();
+    }
 
-        Vector3 randomTorque = new Vector3(
-            Random.Range(-1f, 1f),
-            Random.Range(-1f, 1f),
-            Random.Range(-1f, 1f)
-        ).normalized * torqueMultiplier;
+    private void ApplyRandomTorque()
+    {
+        Vector3 randomTorque = new Vector3(Random.Range(-1f, 1f),Random.Range(-1f, 1f),Random.Range(-1f, 1f)).normalized * torqueMultiplier;
         rb.AddTorque(randomTorque, ForceMode.Impulse);
-        rb.AddForce((Vector3.up * upwardForce) + (Vector3.forward * forwardForce) , ForceMode.Impulse);
+    }
+
+    private void ApplyForce()
+    {
+        rb.AddForce((Vector3.up * upwardForce) + (Vector3.forward * forwardForce), ForceMode.Impulse);
     }
 
     public void DeactivatePhysics()
@@ -49,6 +53,6 @@ public class CarCrashSimulator : MonoBehaviour
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        collider.isTrigger = true;
+        col.isTrigger = true;
     }
 }
