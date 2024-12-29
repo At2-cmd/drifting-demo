@@ -184,10 +184,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3342569609307978715, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.41
-      objectReference: {fileID: 0}
     - target: {fileID: 4942141343011987486, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -423,9 +419,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7536741932475196895, guid: 2cc60b3f4355f914d8e2dfa3b028d67d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7928789066193012624, guid: 2cc60b3f4355f914d8e2dfa3b028d67d, type: 3}
       propertyPath: m_Name
       value: SceneDefaults
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173317733283281031, guid: 2cc60b3f4355f914d8e2dfa3b028d67d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
