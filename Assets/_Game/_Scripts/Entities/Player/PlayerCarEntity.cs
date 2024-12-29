@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -18,17 +19,21 @@ public class PlayerCarEntity : MonoBehaviour
     private float _targetRotation;
     private float _currentWheelAngle;
     private Vector3 _lastPosition;
+    private Vector3 _initialPosition;
     private Transform _transform;
-
+    private bool _isCarInteractable;
     public void Initialize()
     {
         _transform = transform;
         _currentSpeed = carDriftData.DefaultSpeed;
         _lastPosition = _transform.position;
+        _initialPosition = _transform.position;
     }
+
 
     void Update()
     {
+        if (!_isCarInteractable) return;
         DetermineTargetSpeedByInput();
         MoveForward();
 
@@ -102,5 +107,15 @@ public class PlayerCarEntity : MonoBehaviour
 
         _lastPosition = _transform.position;
         _currentSwerve = 0f;
+    }
+
+    public void SetCarInteractibility(bool value)
+    {
+        _isCarInteractable = value;
+    }
+
+    public void GetBackToInitialPosition()
+    {
+        transform.position = _initialPosition;
     }
 }

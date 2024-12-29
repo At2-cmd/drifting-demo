@@ -14,14 +14,17 @@ public class RoadEntity : MonoBehaviour
     private float[] roadXPositions = new float[3] { -2.25f, 0f, 2.25f };
     private List<NPCCarEntity> _generatedCarsList = new();
     private Vector3 _carGenerationPosition;
+    private Vector3 _initialRoadPosition;
     private float _offsetBetweenGeneratedCars = 10;
     private float _initialGenerationOffset = 25;
     public float RoadLength => meshRenderer.bounds.size.z;
+
 
     public void Initialize(RoadController roadController)
     {
         roadEndTrigger.OnTriggered += OnPlayerReachedRoadEnd;
         _roadController = roadController;
+        _initialRoadPosition = transform.position;
         GenerateCarsOnTheRoad();
     }
 
@@ -48,5 +51,11 @@ public class RoadEntity : MonoBehaviour
             _generatedCarsList.Add(_npcCarsPool.Spawn(_carGenerationPosition));
             _generatedCarCount++;
         }
+    }
+    public void ResetRoadToInitialStatus()
+    {
+        transform.position = _initialRoadPosition;
+        ResetRoad();
+        GenerateCarsOnTheRoad();
     }
 }

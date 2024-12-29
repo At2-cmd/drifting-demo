@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -7,8 +8,28 @@ public class RoadController : MonoBehaviour, IInitializable, IRoadController
 
     public void Initialize()
     {
+        Subscribe();
         InitializeRoads();
     }
+
+    private void OnDestroy()
+    {
+        Unsubscribe();
+    }
+    private void Subscribe()
+    {
+        EventController.Instance.OnBlackScreenOpened += OnBlackScreenOpenedHandler;
+    }
+    private void Unsubscribe()
+    {
+        EventController.Instance.OnBlackScreenOpened -= OnBlackScreenOpenedHandler;
+    }
+
+    private void OnBlackScreenOpenedHandler()
+    {
+        foreach (var road in roadEntities) road.ResetRoadToInitialStatus();
+    }
+
     private void InitializeRoads()
     {
         foreach (var road in roadEntities)
