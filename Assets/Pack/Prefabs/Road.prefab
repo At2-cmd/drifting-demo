@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 1587209047840358242}
   - component: {fileID: 907122127079490220}
   - component: {fileID: 4955298049222614056}
+  - component: {fileID: 3557441405964667596}
   m_Layer: 0
   m_Name: HO_Road_Straight
   m_TagString: Untagged
@@ -204,6 +205,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3557441405964667596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157137140781917178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 152.47037, y: 0.01, z: 120}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5885029432173109790
 GameObject:
   m_ObjectHideFlags: 0

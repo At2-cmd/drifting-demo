@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour, IInitializable, IGameManager
     public void OnGameFailed()
     {
         _playerCarController.SetCarInteractibility(false);
-        _uiController.ShowFailPopup();
+        DOVirtual.DelayedCall(3, _uiController.ShowFailPopup);
     }
 
     private void Update()

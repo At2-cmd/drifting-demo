@@ -31,6 +31,7 @@ public class PlayerCarController : MonoBehaviour, IInitializable, IPlayerCarCont
 
     private void OnBlackScreenOpenedHandler()
     {
+        playerCarEntity.DeactivatePhysicsCrashSimulation();
         playerCarEntity.GetBackToInitialPosition();
     }
 

@@ -6,6 +6,7 @@ public class PlayerCarEntity : MonoBehaviour
 {
     [Inject] IInputDataProvider _inputDataProvider;
 
+    [SerializeField] private CarCrashSimulator carCrashSimulator;
     [SerializeField] private Transform frontLeftWheel;
     [SerializeField] private Transform frontRightWheel;
     [SerializeField] private Transform bodyTransform;
@@ -24,12 +25,12 @@ public class PlayerCarEntity : MonoBehaviour
     private bool _isCarInteractable;
     public void Initialize()
     {
+        carCrashSimulator.Initialize();
         _transform = transform;
         _currentSpeed = carDriftData.DefaultSpeed;
         _lastPosition = _transform.position;
         _initialPosition = _transform.position;
     }
-
 
     void Update()
     {
@@ -89,19 +90,32 @@ public class PlayerCarEntity : MonoBehaviour
         frontRightWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
     }
 
-    private void ResetWheelRotation()
+    private void ResetWheelRotation(bool isInstant = false)
     {
-        _currentWheelAngle = Mathf.Lerp(_currentWheelAngle, 0, carDriftData.WheelTurnSmoothness);
+        if (!isInstant)
+        {
+            _currentWheelAngle = Mathf.Lerp(_currentWheelAngle, 0, carDriftData.WheelTurnSmoothness);
+        }
+        else
+        {
+            _currentWheelAngle = 0f;
+        }
 
-        // Reset wheel rotation to default
         frontLeftWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
         frontRightWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
     }
 
-    private void ReturnToDefaultRotation()
+    private void ReturnToDefaultRotation(bool isInstant = false)
     {
         _targetRotation = 0f;
-        _currentRotation = Mathf.Lerp(_currentRotation, _targetRotation, carDriftData.RotationSmoothness);
+        if (!isInstant)
+        {
+            _currentRotation = Mathf.Lerp(_currentRotation, _targetRotation, carDriftData.RotationSmoothness);
+        }
+        else
+        {
+            _currentRotation = 0f;
+        }
         _transform.rotation = Quaternion.Euler(0, _currentRotation, 0);
         bodyTransform.localRotation = Quaternion.Euler(0, 0, _currentRotation);
 
@@ -117,5 +131,12 @@ public class PlayerCarEntity : MonoBehaviour
     public void GetBackToInitialPosition()
     {
         transform.position = _initialPosition;
+    }
+
+    public void DeactivatePhysicsCrashSimulation()
+    {
+        ResetWheelRotation(true); 
+        ReturnToDefaultRotation(true);
+        carCrashSimulator.DeactivatePhysics();
     }
 }
