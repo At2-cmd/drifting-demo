@@ -7,5 +7,6 @@ public class GameManagerInstaller : MonoInstaller
         Container.BindInterfacesTo<EventController>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesTo<GameManager>().FromComponentInHierarchy().AsSingle();
         Container.BindInterfacesTo<InputController>().FromComponentInHierarchy().AsSingle();
+        Container.BindInterfacesTo<PlayerCarController>().FromComponentInHierarchy().AsSingle();
     }
 }
