@@ -92,8 +92,6 @@ MonoBehaviour:
     rotationSmoothness: 0.1
     wheelTurnAngle: 30
     wheelTurnSmoothness: 0.2
-    bodyRollAngle: 20
-    bodyRollSmoothness: 0.1
 --- !u!65 &6342175663147405864
 BoxCollider:
   m_ObjectHideFlags: 0
