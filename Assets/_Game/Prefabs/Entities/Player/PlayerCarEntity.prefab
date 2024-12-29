@@ -79,15 +79,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontLeftWheel: {fileID: 6716908552015411983}
   frontRightWheel: {fileID: 8344989275988504898}
-  defaultSpeed: 10
-  pressedSpeed: 20
-  speedLerpFactor: 5
-  swerveSpeed: 5
-  swerveLimit: 5
-  driftRotation: 15
-  rotationSmoothness: 0.1
-  wheelTurnAngle: 30
-  wheelTurnSmoothness: 0.2
+  carDriftData:
+    defaultSpeed: 10
+    pressedSpeed: 20
+    speedLerpFactor: 5
+    swerveSpeed: 5
+    swerveLimit: 5
+    driftRotation: 15
+    rotationSmoothness: 0.1
+    wheelTurnAngle: 30
+    wheelTurnSmoothness: 0.2
 --- !u!1001 &6556120590444579153
 PrefabInstance:
   m_ObjectHideFlags: 0
