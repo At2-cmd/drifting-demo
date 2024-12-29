@@ -1,18 +1,24 @@
-using System;
 using UnityEngine;
 using Zenject;
 
-public class RoadController : MonoBehaviour, IInitializable
+public class RoadController : MonoBehaviour, IInitializable, IRoadController
 {
     [SerializeField] private RoadEntity[] roadEntities;
-    private int _generatedRoadIndex;
+
     public void Initialize()
     {
-        GenerateRoad();
+        InitializeRoads();
+    }
+    private void InitializeRoads()
+    {
+        foreach (var road in roadEntities)
+        {
+            road.Initialize(this);
+        }
     }
 
-    private void GenerateRoad()
+    public void OnRoadEndReached(RoadEntity roadEntity)
     {
-        //roadEntities[_generatedRoadIndex].SetActivation(true);
+        roadEntity.transform.position += (Vector3.forward * (roadEntity.RoadLength * roadEntities.Length));
     }
 }
