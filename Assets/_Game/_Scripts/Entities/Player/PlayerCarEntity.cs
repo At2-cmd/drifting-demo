@@ -7,6 +7,7 @@ public class PlayerCarEntity : MonoBehaviour
 
     [SerializeField] private Transform frontLeftWheel;
     [SerializeField] private Transform frontRightWheel;
+    [SerializeField] private Transform bodyTransform;
     [SerializeField] private CarDriftData carDriftData;
     
 
@@ -71,6 +72,7 @@ public class PlayerCarEntity : MonoBehaviour
         _targetRotation = -_inputDataProvider.HorizontalInput * carDriftData.DriftRotation;
         _currentRotation = Mathf.Lerp(_currentRotation, _targetRotation, carDriftData.RotationSmoothness);
         _transform.rotation = Quaternion.Euler(0, _currentRotation, 0);
+        bodyTransform.localRotation = Quaternion.Euler(0, 0, _currentRotation);
     }
 
     private void RotateWheels()
@@ -78,7 +80,6 @@ public class PlayerCarEntity : MonoBehaviour
         float targetWheelAngle = _inputDataProvider.HorizontalInput * carDriftData.WheelTurnAngle;
         _currentWheelAngle = Mathf.Lerp(_currentWheelAngle, targetWheelAngle, carDriftData.WheelTurnSmoothness);
 
-        // Apply rotation to wheels
         frontLeftWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
         frontRightWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
     }
@@ -97,6 +98,7 @@ public class PlayerCarEntity : MonoBehaviour
         _targetRotation = 0f;
         _currentRotation = Mathf.Lerp(_currentRotation, _targetRotation, carDriftData.RotationSmoothness);
         _transform.rotation = Quaternion.Euler(0, _currentRotation, 0);
+        bodyTransform.localRotation = Quaternion.Euler(0, 0, _currentRotation);
 
         _lastPosition = _transform.position;
         _currentSwerve = 0f;

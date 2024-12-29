@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontLeftWheel: {fileID: 6716908552015411983}
   frontRightWheel: {fileID: 8344989275988504898}
+  bodyTransform: {fileID: 9026029899274662984}
   carDriftData:
     defaultSpeed: 10
     pressedSpeed: 20
@@ -91,6 +92,8 @@ MonoBehaviour:
     rotationSmoothness: 0.1
     wheelTurnAngle: 30
     wheelTurnSmoothness: 0.2
+    bodyRollAngle: 20
+    bodyRollSmoothness: 0.1
 --- !u!65 &6342175663147405864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,5 +232,10 @@ Transform:
 --- !u!4 &8344989275988504898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2968821550980003859, guid: 67afac91460758648a192e444ca155af, type: 3}
+  m_PrefabInstance: {fileID: 6556120590444579153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9026029899274662984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2863975658130832665, guid: 67afac91460758648a192e444ca155af, type: 3}
   m_PrefabInstance: {fileID: 6556120590444579153}
   m_PrefabAsset: {fileID: 0}
