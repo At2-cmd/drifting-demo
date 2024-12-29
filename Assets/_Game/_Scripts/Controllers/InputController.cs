@@ -4,8 +4,9 @@ using Zenject;
 public class InputController : MonoBehaviour, IInitializable, IInputDataProvider
 {
     private Vector3 _movementVector;
-    public float HorizontalInput => Input.GetAxis("Horizontal");
-    public float VerticalInput => Input.GetAxis("Vertical");
+    public float HorizontalInput => Input.GetAxis("Mouse X");
+    public float VerticalInput => Input.GetAxis("Mouse Y");
+    public bool IsPressing => Input.GetMouseButton(0);
 
     public void Initialize(){}
 
