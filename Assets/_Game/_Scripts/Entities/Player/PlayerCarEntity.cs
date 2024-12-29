@@ -5,6 +5,9 @@ public class PlayerCarEntity : MonoBehaviour
 {
     [Inject] IInputDataProvider _inputDataProvider;
 
+    [SerializeField] private Transform frontLeftWheel;
+    [SerializeField] private Transform frontRightWheel;
+
     [SerializeField] private float defaultSpeed = 10f;
     [SerializeField] private float pressedSpeed = 20f;
     [SerializeField] private float speedLerpFactor = 5f;
@@ -14,11 +17,15 @@ public class PlayerCarEntity : MonoBehaviour
     [SerializeField] private float driftRotation = 15f;
     [SerializeField] private float rotationSmoothness = 0.1f;
 
+    [SerializeField] private float wheelTurnAngle = 30f; // Maximum wheel turn angle
+    [SerializeField] private float wheelTurnSmoothness = 0.2f;
+
     private float _currentSpeed;
     private float _currentSwerve;
     private float _currentRotation;
     private float _targetSpeed;
     private float _targetRotation;
+    private float _currentWheelAngle;
     private Vector3 _lastPosition;
     private Transform _transform;
 
@@ -38,10 +45,12 @@ public class PlayerCarEntity : MonoBehaviour
         {
             HandleSwerve();
             HandleRotation();
+            RotateWheels();
         }
         else
         {
             ReturnToDefaultRotation();
+            ResetWheelRotation();
         }
     }
 
@@ -72,6 +81,25 @@ public class PlayerCarEntity : MonoBehaviour
         _targetRotation = -_inputDataProvider.HorizontalInput * driftRotation;
         _currentRotation = Mathf.Lerp(_currentRotation, _targetRotation, rotationSmoothness);
         _transform.rotation = Quaternion.Euler(0, _currentRotation, 0);
+    }
+
+    private void RotateWheels()
+    {
+        float targetWheelAngle = _inputDataProvider.HorizontalInput * wheelTurnAngle;
+        _currentWheelAngle = Mathf.Lerp(_currentWheelAngle, targetWheelAngle, wheelTurnSmoothness);
+
+        // Apply rotation to wheels
+        frontLeftWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
+        frontRightWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
+    }
+
+    private void ResetWheelRotation()
+    {
+        _currentWheelAngle = Mathf.Lerp(_currentWheelAngle, 0, wheelTurnSmoothness);
+
+        // Reset wheel rotation to default
+        frontLeftWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
+        frontRightWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
     }
 
     private void ReturnToDefaultRotation()

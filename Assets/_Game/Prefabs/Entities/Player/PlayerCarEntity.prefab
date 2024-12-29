@@ -77,6 +77,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03842cdba08eee43bbf0caed264f939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frontLeftWheel: {fileID: 6716908552015411983}
+  frontRightWheel: {fileID: 8344989275988504898}
+  defaultSpeed: 10
+  pressedSpeed: 20
+  speedLerpFactor: 5
+  swerveSpeed: 5
+  swerveLimit: 5
+  driftRotation: 15
+  rotationSmoothness: 0.1
+  wheelTurnAngle: 30
+  wheelTurnSmoothness: 0.2
 --- !u!1001 &6556120590444579153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,6 +148,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6217837194366927152, guid: 67afac91460758648a192e444ca155af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291511227903152413, guid: 67afac91460758648a192e444ca155af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6302991580782884940, guid: 67afac91460758648a192e444ca155af, type: 3}
       propertyPath: m_Name
       value: Player Car
@@ -146,8 +165,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67afac91460758648a192e444ca155af, type: 3}
+--- !u!4 &6716908552015411983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 561617678016164446, guid: 67afac91460758648a192e444ca155af, type: 3}
+  m_PrefabInstance: {fileID: 6556120590444579153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6820959806340229496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 312136228515520553, guid: 67afac91460758648a192e444ca155af, type: 3}
+  m_PrefabInstance: {fileID: 6556120590444579153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8344989275988504898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2968821550980003859, guid: 67afac91460758648a192e444ca155af, type: 3}
   m_PrefabInstance: {fileID: 6556120590444579153}
   m_PrefabAsset: {fileID: 0}

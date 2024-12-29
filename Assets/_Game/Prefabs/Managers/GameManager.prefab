@@ -35,6 +35,7 @@ Transform:
   - {fileID: 4635063353943625832}
   - {fileID: 5058103314379456814}
   - {fileID: 2782940399454467518}
+  - {fileID: 5972407829475764283}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5799560898863377881
@@ -122,6 +123,40 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8797996067780637443, guid: 8a82f53f1320eb142a4bd31aa2bcec06, type: 3}
   m_PrefabInstance: {fileID: 2290077098177550119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2796345333707080268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4942141343011987486}
+    m_Modifications:
+    - target: {fileID: 7029839217272586259, guid: 496b212f0a9b77a45a1f3409cda91ec4, type: 3}
+      propertyPath: m_Name
+      value: RoadController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371307721227807351, guid: 496b212f0a9b77a45a1f3409cda91ec4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371307721227807351, guid: 496b212f0a9b77a45a1f3409cda91ec4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371307721227807351, guid: 496b212f0a9b77a45a1f3409cda91ec4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 496b212f0a9b77a45a1f3409cda91ec4, type: 3}
+--- !u!4 &5972407829475764283 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8371307721227807351, guid: 496b212f0a9b77a45a1f3409cda91ec4, type: 3}
+  m_PrefabInstance: {fileID: 2796345333707080268}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6326051310133041379
 PrefabInstance:
