@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     [SerializeField] private PopupBase successPopupView;
     [SerializeField] private PopupBase failedPopupView;
     [SerializeField] private CarMovementActivator carMovementActivatorButton;
+    [SerializeField] private SteeringView steeringView;
     public void Initialize()
     {
         Subscribe();
@@ -47,5 +48,10 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     {
         failedPopupView.SetPopupActiveness(true);
         failedPopupView.Initialize();
+    }
+
+    public void ChangeSteeringViewRotation(float targetRotation)
+    {
+        steeringView.ChangeRotation(targetRotation);
     }
 }

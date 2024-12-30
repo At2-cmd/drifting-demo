@@ -5,6 +5,7 @@ using Zenject;
 public class PlayerCarEntity : MonoBehaviour
 {
     [Inject] IInputDataProvider _inputDataProvider;
+    [Inject] IUIController _uiController;
 
     [SerializeField] private CarCrashSimulator carCrashSimulator;
     [SerializeField] private Transform carModelTransform;
@@ -80,6 +81,7 @@ public class PlayerCarEntity : MonoBehaviour
         _currentRotation = Mathf.Lerp(_currentRotation, _targetRotation, carDriftData.RotationSmoothness);
         carModelTransform.rotation = Quaternion.Euler(0, _currentRotation, 0);
         bodyTransform.localRotation = Quaternion.Euler(0, 0, _currentRotation);
+        _uiController.ChangeSteeringViewRotation(_currentRotation);
     }
 
     private void RotateWheels()
@@ -119,6 +121,7 @@ public class PlayerCarEntity : MonoBehaviour
         }
         carModelTransform.rotation = Quaternion.Euler(0, _currentRotation, 0);
         bodyTransform.localRotation = Quaternion.Euler(0, 0, _currentRotation);
+        _uiController.ChangeSteeringViewRotation(_currentRotation);
 
         _lastPosition = _transform.position;
         _currentSwerve = 0f;

@@ -197,6 +197,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5346504835301246122, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
+      propertyPath: steeringView
+      value: 
+      objectReference: {fileID: 2519875918398485745}
+    - target: {fileID: 5346504835301246122, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
       propertyPath: failedPopupView
       value: 
       objectReference: {fileID: 312651148}
@@ -328,6 +332,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72d3bbd9310694749b29007449030cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2519875918398485745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3327446596691943443, guid: 353547a6f449c074f999d0cc57bb8cc5, type: 3}
+  m_PrefabInstance: {fileID: 2519875918398485743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2838d9782c6f7324aa0b4efcc86d652c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7126527494268691564
