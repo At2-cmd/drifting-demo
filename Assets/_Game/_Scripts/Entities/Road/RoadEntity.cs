@@ -4,58 +4,37 @@ using Zenject;
 
 public class RoadEntity : MonoBehaviour
 {
-    [Inject] NPCCarEntity.Pool _npcCarsPool;
+    [Inject] CoinEntity.Pool _coinsPool;
+    [SerializeField] private NPCCarGenerator npcCarGenerator;
+    [SerializeField] private CoinGenerator coinGenerator;
     [SerializeField] private TriggerHandler roadEndTrigger;
     [SerializeField] private MeshRenderer meshRenderer;
-    [SerializeField] private int carGenerationAmount;
 
     private RoadController _roadController;
-    private int _generatedCarCount;
-    private float[] roadXPositions = new float[3] { -2.25f, 0f, 2.25f };
-    private List<NPCCarEntity> _generatedCarsList = new();
-    private Vector3 _carGenerationPosition;
     private Vector3 _initialRoadPosition;
-    private float _offsetBetweenGeneratedCars = 10;
-    private float _initialGenerationOffset = 25;
     public float RoadLength => meshRenderer.bounds.size.z;
 
 
     public void Initialize(RoadController roadController)
     {
+        npcCarGenerator.Initialize();
+        coinGenerator.Initialize();
         roadEndTrigger.OnTriggered += OnPlayerReachedRoadEnd;
         _roadController = roadController;
         _initialRoadPosition = transform.position;
-        GenerateCarsOnTheRoad();
     }
 
     private void OnPlayerReachedRoadEnd(Transform player)
     {
         _roadController.OnRoadEndReached(this);
-        ResetRoad();
-        GenerateCarsOnTheRoad();
+        npcCarGenerator.ResetGeneratedCars();
+        npcCarGenerator.GenerateCarsOnTheRoad();
     }
-
-    private void ResetRoad()
-    {
-        _generatedCarCount = 0;
-        foreach (var npcCar in _generatedCarsList) npcCar.Despawn();
-        _generatedCarsList.Clear();
-    }
-
-    private void GenerateCarsOnTheRoad()
-    {
-        for (int i = 0; i <= carGenerationAmount; i++)
-        {
-            _carGenerationPosition.x = roadXPositions[Random.Range(0, roadXPositions.Length)];
-            _carGenerationPosition.z = (transform.position.z) + _initialGenerationOffset + (_generatedCarCount * _offsetBetweenGeneratedCars);
-            _generatedCarsList.Add(_npcCarsPool.Spawn(_carGenerationPosition));
-            _generatedCarCount++;
-        }
-    }
+    
     public void ResetRoadToInitialStatus()
     {
         transform.position = _initialRoadPosition;
-        ResetRoad();
-        GenerateCarsOnTheRoad();
+        npcCarGenerator.ResetGeneratedCars();
+        npcCarGenerator.GenerateCarsOnTheRoad();
     }
 }

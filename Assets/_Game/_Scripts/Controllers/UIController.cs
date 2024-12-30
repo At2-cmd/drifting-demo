@@ -54,4 +54,9 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     {
         steeringView.ChangeRotation(targetRotation);
     }
+
+    public void UpdateCoinsView()
+    {
+
+    }
 }

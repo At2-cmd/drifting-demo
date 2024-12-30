@@ -651,6 +651,8 @@ GameObject:
   m_Component:
   - component: {fileID: 551668982062167538}
   - component: {fileID: 7171066974591825511}
+  - component: {fileID: 3615963812793122301}
+  - component: {fileID: 723140719232177922}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -688,9 +690,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fb766bd7bdc934cb759cda1bff41a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcCarGenerator: {fileID: 3615963812793122301}
+  coinGenerator: {fileID: 723140719232177922}
   roadEndTrigger: {fileID: 501353236443883771}
   meshRenderer: {fileID: 4955298049222614056}
+--- !u!114 &3615963812793122301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924189417120447073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e6bd342c5633d4884fe6b48fed1b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   carGenerationAmount: 10
+--- !u!114 &723140719232177922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924189417120447073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574dd592c436bcf4aa211c4885d9e361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8784046676769981168
 PrefabInstance:
   m_ObjectHideFlags: 0

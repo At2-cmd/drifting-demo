@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcCarEntity: {fileID: 1801469323915062656, guid: fde68baa1aa0b0d4399b91d735206060, type: 3}
+  coinEntity: {fileID: 2602577930241463244, guid: 1761dd49b6b44f249a1d24c22402215a, type: 3}
