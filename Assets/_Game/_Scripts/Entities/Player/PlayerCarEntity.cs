@@ -42,6 +42,7 @@ public class PlayerCarEntity : MonoBehaviour
         if (!_isCarInteractable) return;
         DetermineTargetSpeedByInput();
         MoveForward();
+        _uiController.AdjustSpeedPanelView(_currentSpeed, (int)carDriftData.DefaultSpeed, (int)carDriftData.MaxPressedSpeed);
 
         if (_inputDataProvider.IsPressing)
         {
@@ -71,8 +72,6 @@ public class PlayerCarEntity : MonoBehaviour
                 _isPressing = true;
                 _pressedSpeedTimer = 0f;
             }
-
-            // Gradually increase speed to maxPressedSpeed
             _pressedSpeedTimer += Time.deltaTime;
             float lerpFactor = Mathf.Clamp01(_pressedSpeedTimer / carDriftData.PressedMaxSpeedLerpDuration);
             _targetSpeed = Mathf.Lerp(carDriftData.PressedSpeed, carDriftData.MaxPressedSpeed, lerpFactor);
@@ -82,8 +81,6 @@ public class PlayerCarEntity : MonoBehaviour
             _isPressing = false;
             _targetSpeed = carDriftData.DefaultSpeed;
         }
-
-        // Smoothly interpolate current speed
         _currentSpeed = Mathf.Lerp(_currentSpeed, _targetSpeed, carDriftData.SpeedLerpFactor * Time.deltaTime);
     }
 

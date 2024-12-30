@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     [SerializeField] private SteeringView steeringView;
     [SerializeField] private CoinsPanelView coinsPanel;
     [SerializeField] private TraveledPathPanel travelledPathPanel;
+    [SerializeField] private SpeedPanelView speedPanelView;
     public void Initialize()
     {
         Subscribe();
@@ -68,5 +69,10 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     public void SetTravelledPathText(int travelledAmount)
     {
         travelledPathPanel.SetTravelledPathText(travelledAmount);
+    }
+
+    public void AdjustSpeedPanelView(float value, int minSpeed, int maxSpeed)
+    {
+        speedPanelView.AdjustSpeedMeter(value, minSpeed, maxSpeed);
     }
 }
