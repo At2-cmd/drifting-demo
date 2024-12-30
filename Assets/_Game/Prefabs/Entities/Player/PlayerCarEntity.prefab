@@ -85,6 +85,7 @@ MonoBehaviour:
   frontLeftWheel: {fileID: 6716908552015411983}
   frontRightWheel: {fileID: 8344989275988504898}
   bodyTransform: {fileID: 9026029899274662984}
+  exhaustParticle: {fileID: 444848482627800941}
   carDriftData:
     defaultSpeed: 10
     pressedSpeed: 20
@@ -235,11 +236,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Car
       objectReference: {fileID: 0}
+    - target: {fileID: 6687968207461787270, guid: 67afac91460758648a192e444ca155af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67afac91460758648a192e444ca155af, type: 3}
+--- !u!198 &444848482627800941 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6687968207480030780, guid: 67afac91460758648a192e444ca155af, type: 3}
+  m_PrefabInstance: {fileID: 6556120590444579153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6716908552015411983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 561617678016164446, guid: 67afac91460758648a192e444ca155af, type: 3}

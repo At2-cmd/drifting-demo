@@ -12,6 +12,7 @@ public class PlayerCarEntity : MonoBehaviour
     [SerializeField] private Transform frontLeftWheel;
     [SerializeField] private Transform frontRightWheel;
     [SerializeField] private Transform bodyTransform;
+    [SerializeField] private ParticleSystem exhaustParticle;
     [SerializeField] private CarDriftData carDriftData;
     
 
