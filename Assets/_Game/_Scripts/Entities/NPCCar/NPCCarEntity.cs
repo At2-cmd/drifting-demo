@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class NPCCarEntity : MonoBehaviour
+public class NPCCarEntity : MonoBehaviour, IGenerateableObjectOnRoad
 {
     private Pool _pool;
 

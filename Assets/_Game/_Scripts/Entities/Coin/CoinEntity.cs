@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class CoinEntity : MonoBehaviour
+public class CoinEntity : MonoBehaviour, IGenerateableObjectOnRoad
 {
     [Inject] IUIController _uiController;
     private Pool _pool;

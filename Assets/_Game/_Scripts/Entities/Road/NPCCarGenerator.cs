@@ -3,34 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class NPCCarGenerator : MonoBehaviour
+public class NPCCarGenerator : GenerateableObjectBase
 {
     [Inject] NPCCarEntity.Pool _npcCarsPool;
-    [SerializeField] private int carGenerationAmount;
-    private int _generatedCarCount;
-    private List<NPCCarEntity> _generatedCarsList = new();
-    private Vector3 _carGenerationPosition;
-    private float[] roadXPositions = new float[3] { -2.25f, 0f, 2.25f };
-    private float _offsetBetweenGeneratedCars = 10;
-    private float _initialGenerationOffset = 25;
     public void Initialize()
     {
         GenerateCarsOnTheRoad();
     }
     public void GenerateCarsOnTheRoad()
     {
-        for (int i = 0; i <= carGenerationAmount; i++)
+        for (int i = 0; i <= GenerationAmount; i++)
         {
-            _carGenerationPosition.x = roadXPositions[Random.Range(0, roadXPositions.Length)];
-            _carGenerationPosition.z = (transform.position.z) + _initialGenerationOffset + (_generatedCarCount * _offsetBetweenGeneratedCars);
-            _generatedCarsList.Add(_npcCarsPool.Spawn(_carGenerationPosition));
-            _generatedCarCount++;
+            TempGenerationPosition.x = RoadXPositions[Random.Range(0, RoadXPositions.Length)];
+            TempGenerationPosition.z = (transform.position.z) + InitialGenerationOffset + (CurrentlyGeneratedCount * OffsetBetweenGeneratedObjects);
+            GeneratedObjectsList.Add(_npcCarsPool.Spawn(TempGenerationPosition));
+            CurrentlyGeneratedCount++;
         }
     }
     public void ResetGeneratedCars()
     {
-        _generatedCarCount = 0;
-        foreach (var npcCar in _generatedCarsList) npcCar.Despawn();
-        _generatedCarsList.Clear();
+        CurrentlyGeneratedCount = 0;
+        foreach (NPCCarEntity npcCar in GeneratedObjectsList) npcCar.Despawn();
+        GeneratedObjectsList.Clear();
     }
 }

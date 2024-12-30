@@ -4,7 +4,6 @@ using Zenject;
 
 public class RoadEntity : MonoBehaviour
 {
-    [Inject] CoinEntity.Pool _coinsPool;
     [SerializeField] private NPCCarGenerator npcCarGenerator;
     [SerializeField] private CoinGenerator coinGenerator;
     [SerializeField] private TriggerHandler roadEndTrigger;
