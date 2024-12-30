@@ -94,7 +94,7 @@ MonoBehaviour:
     driftRotation: 30
     rotationSmoothness: 0.1
     releasedRotationSmoothness: 0.05
-    wheelTurnAngle: 30
+    wheelTurnAngle: 50
     wheelTurnSmoothness: 0.2
 --- !u!114 &4446950716801813160
 MonoBehaviour:

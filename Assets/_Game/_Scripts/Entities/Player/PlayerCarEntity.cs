@@ -87,8 +87,8 @@ public class PlayerCarEntity : MonoBehaviour
         float targetWheelAngle = _inputDataProvider.HorizontalInput * carDriftData.WheelTurnAngle;
         _currentWheelAngle = Mathf.Lerp(_currentWheelAngle, targetWheelAngle, carDriftData.WheelTurnSmoothness);
 
-        frontLeftWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
-        frontRightWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
+        frontLeftWheel.rotation = Quaternion.Euler(0, _currentWheelAngle, 0);
+        frontRightWheel.rotation = Quaternion.Euler(0, _currentWheelAngle, 0);
     }
 
     private void ResetWheelRotation(bool isInstant = false)
@@ -102,8 +102,8 @@ public class PlayerCarEntity : MonoBehaviour
             _currentWheelAngle = 0f;
         }
 
-        frontLeftWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
-        frontRightWheel.localRotation = Quaternion.Euler(0, _currentWheelAngle, 0);
+        frontLeftWheel.rotation = Quaternion.Euler(0, _currentWheelAngle, 0);
+        frontRightWheel.rotation = Quaternion.Euler(0, _currentWheelAngle, 0);
     }
 
     private void ReturnToDefaultRotation(bool isInstant = false)
