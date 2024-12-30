@@ -31,6 +31,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2337480044925253136}
   - {fileID: 9217471587847413906}
   - {fileID: 7232676697571792593}
   - {fileID: 2243978706763886631}
@@ -312,6 +313,48 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2599657916886283054, guid: 44b4d7566501b3c49992c8568d40788f, type: 3}
   m_PrefabInstance: {fileID: 6627291530483684284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7018912919868599236
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 218220839920623281}
+    m_Modifications:
+    - target: {fileID: 4690593207006764500, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690593207006764500, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690593207006764500, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690593207006764500, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690593207006764500, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019707306376615943, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+      propertyPath: m_Name
+      value: CoinsPanel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+--- !u!224 &2337480044925253136 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4690593207006764500, guid: 991f7e648a0a94b4cb6810c01f85353d, type: 3}
+  m_PrefabInstance: {fileID: 7018912919868599236}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7644981687241152853
 PrefabInstance:

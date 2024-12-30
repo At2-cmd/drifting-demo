@@ -10,7 +10,7 @@ public class CoinEntity : MonoBehaviour, IGenerateableObjectOnRoad
     {
         if (other.transform.TryGetComponent(out PlayerCarEntity player))
         {
-            _uiController.UpdateCoinsView();
+            _uiController.IncreaseCoins();
             Despawn();
         }
     }

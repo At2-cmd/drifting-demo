@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,7 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     [SerializeField] private PopupBase failedPopupView;
     [SerializeField] private CarMovementActivator carMovementActivatorButton;
     [SerializeField] private SteeringView steeringView;
+    [SerializeField] private CoinsPanelView coinsPanel;
     public void Initialize()
     {
         Subscribe();
@@ -32,6 +34,7 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     private void OnBlackScreenClosedHandler()
     {
         carMovementActivatorButton.SetActivatorActiveness(true);
+        coinsPanel.ResetCoins();;
     }
 
     private void OnBlackScreenOpenedHandler()
@@ -55,8 +58,8 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
         steeringView.ChangeRotation(targetRotation);
     }
 
-    public void UpdateCoinsView()
+    public void IncreaseCoins()
     {
-
+        coinsPanel.IncreaseCoins();
     }
 }
