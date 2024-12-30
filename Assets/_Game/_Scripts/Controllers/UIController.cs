@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     [SerializeField] private CarMovementActivator carMovementActivatorButton;
     [SerializeField] private SteeringView steeringView;
     [SerializeField] private CoinsPanelView coinsPanel;
+    [SerializeField] private TraveledPathPanel travelledPathPanel;
     public void Initialize()
     {
         Subscribe();
@@ -34,7 +35,8 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     private void OnBlackScreenClosedHandler()
     {
         carMovementActivatorButton.SetActivatorActiveness(true);
-        coinsPanel.ResetCoins();;
+        coinsPanel.ResetCoins();
+        travelledPathPanel.ResetTravelledPath();
     }
 
     private void OnBlackScreenOpenedHandler()
@@ -61,5 +63,10 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
     public void IncreaseCoins()
     {
         coinsPanel.IncreaseCoins();
+    }
+
+    public void SetTravelledPathText(int travelledAmount)
+    {
+        travelledPathPanel.SetTravelledPathText(travelledAmount);
     }
 }

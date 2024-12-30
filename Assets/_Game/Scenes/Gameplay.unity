@@ -139,6 +139,17 @@ Light:
   m_CorrespondingSourceObject: {fileID: 1634606448247822107, guid: 2cc60b3f4355f914d8e2dfa3b028d67d, type: 3}
   m_PrefabInstance: {fileID: 8837927850320134361}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1017951590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8958378762427428532, guid: 353547a6f449c074f999d0cc57bb8cc5, type: 3}
+  m_PrefabInstance: {fileID: 2519875918398485743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac8913ce46940a459be84b510569d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1120342199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5693597368051799031, guid: 353547a6f449c074f999d0cc57bb8cc5, type: 3}
@@ -148,6 +159,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e85118277824e08885f76aeff58d2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1787925111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5903018191110711586, guid: 353547a6f449c074f999d0cc57bb8cc5, type: 3}
+  m_PrefabInstance: {fileID: 2519875918398485743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee98612befd64e34291266e65d7cde71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1958607459 stripped
@@ -201,6 +223,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2519875918398485746}
     - target: {fileID: 5346504835301246122, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
+      propertyPath: coinsPanel
+      value: 
+      objectReference: {fileID: 1787925111}
+    - target: {fileID: 5346504835301246122, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
       propertyPath: steeringView
       value: 
       objectReference: {fileID: 2519875918398485745}
@@ -212,6 +238,10 @@ PrefabInstance:
       propertyPath: successPopupView
       value: 
       objectReference: {fileID: 1120342199}
+    - target: {fileID: 5346504835301246122, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
+      propertyPath: travelledPathPanel
+      value: 
+      objectReference: {fileID: 1017951590}
     - target: {fileID: 5346504835301246122, guid: db98c9c7b899dfd45b909f4640e40b3f, type: 3}
       propertyPath: carMovementActivatorButton
       value: 
@@ -324,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2337480044925253136, guid: 353547a6f449c074f999d0cc57bb8cc5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -27.900024
+      value: -27.899902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

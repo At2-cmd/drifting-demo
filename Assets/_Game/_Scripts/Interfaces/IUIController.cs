@@ -4,4 +4,5 @@ public interface IUIController
     void ShowFailPopup();
     void ChangeSteeringViewRotation(float targetRotation);
     void IncreaseCoins();
+    void SetTravelledPathText(int travelledAmount);
 }

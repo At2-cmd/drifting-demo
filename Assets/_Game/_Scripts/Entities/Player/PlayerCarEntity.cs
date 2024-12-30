@@ -58,6 +58,7 @@ public class PlayerCarEntity : MonoBehaviour
     private void MoveForward()
     {
         _transform.Translate(Vector3.forward * _currentSpeed * Time.deltaTime);
+        _uiController.SetTravelledPathText((int)_transform.position.z);
     }
 
     private void DetermineTargetSpeedByInput()
