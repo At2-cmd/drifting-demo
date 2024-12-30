@@ -26,14 +26,22 @@ public class RoadEntity : MonoBehaviour
     private void OnPlayerReachedRoadEnd(Transform player)
     {
         _roadController.OnRoadEndReached(this);
-        npcCarGenerator.ResetGeneratedCars();
-        npcCarGenerator.GenerateCarsOnTheRoad();
+
+        npcCarGenerator.ResetGeneratedObjects();
+        npcCarGenerator.GenerateObjects();
+
+        coinGenerator.ResetGeneratedObjects();
+        coinGenerator.GenerateObjects();
     }
     
     public void ResetRoadToInitialStatus()
     {
         transform.position = _initialRoadPosition;
-        npcCarGenerator.ResetGeneratedCars();
-        npcCarGenerator.GenerateCarsOnTheRoad();
+
+        npcCarGenerator.ResetGeneratedObjects();
+        npcCarGenerator.GenerateObjects();
+
+        coinGenerator.ResetGeneratedObjects();
+        coinGenerator.GenerateObjects();
     }
 }

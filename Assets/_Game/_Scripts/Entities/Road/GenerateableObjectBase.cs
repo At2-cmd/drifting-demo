@@ -10,4 +10,7 @@ public abstract class GenerateableObjectBase : MonoBehaviour
     protected float InitialGenerationOffset = 25;
     protected List<IGenerateableObjectOnRoad> GeneratedObjectsList = new();
     protected float[] RoadXPositions = new float[3] { -2.25f, 0f, 2.25f };
+
+    public abstract void GenerateObjects();
+    public abstract void ResetGeneratedObjects();
 }

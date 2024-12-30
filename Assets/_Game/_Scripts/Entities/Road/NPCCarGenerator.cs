@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -8,9 +6,9 @@ public class NPCCarGenerator : GenerateableObjectBase
     [Inject] NPCCarEntity.Pool _npcCarsPool;
     public void Initialize()
     {
-        GenerateCarsOnTheRoad();
+        GenerateObjects();
     }
-    public void GenerateCarsOnTheRoad()
+    public override void GenerateObjects()
     {
         for (int i = 0; i <= GenerationAmount; i++)
         {
@@ -20,7 +18,7 @@ public class NPCCarGenerator : GenerateableObjectBase
             CurrentlyGeneratedCount++;
         }
     }
-    public void ResetGeneratedCars()
+    public override void ResetGeneratedObjects()
     {
         CurrentlyGeneratedCount = 0;
         foreach (NPCCarEntity npcCar in GeneratedObjectsList) npcCar.Despawn();

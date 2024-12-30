@@ -17,6 +17,7 @@ public class CoinEntity : MonoBehaviour, IGenerateableObjectOnRoad
 
     public void Despawn()
     {
+        if (!gameObject.activeSelf) return;
         _pool.Despawn(this);
     }
 
