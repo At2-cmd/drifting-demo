@@ -39,21 +39,6 @@ public class CoinEntity : MonoBehaviour, IGenerateableObjectOnRoad
             item.SetPool(this);
         }
 
-        protected override void OnDespawned(CoinEntity item)
-        {
-            base.OnDespawned(item);
-        }
-
-        protected override void OnDestroyed(CoinEntity item)
-        {
-            base.OnDestroyed(item);
-        }
-
-        protected override void OnSpawned(CoinEntity item)
-        {
-            base.OnSpawned(item);
-        }
-
         protected override void Reinitialize(Vector3 position, CoinEntity item)
         {
             base.Reinitialize(position, item);

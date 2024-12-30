@@ -1,5 +1,3 @@
-using DG.Tweening;
-
 public class LevelFailedPopupView : PopupBase
 {
     public override void Initialize()

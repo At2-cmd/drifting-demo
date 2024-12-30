@@ -1,5 +1,3 @@
-using System;
-using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -40,10 +38,7 @@ public class UIController : MonoBehaviour, IInitializable, IUIController
         travelledPathPanel.ResetTravelledPath();
     }
 
-    private void OnBlackScreenOpenedHandler()
-    {
-
-    }
+    private void OnBlackScreenOpenedHandler(){}
 
     public void ShowSuccessPopup()
     {

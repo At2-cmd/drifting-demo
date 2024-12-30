@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class RoadEntity : MonoBehaviour
 {
@@ -12,7 +10,6 @@ public class RoadEntity : MonoBehaviour
     private RoadController _roadController;
     private Vector3 _initialRoadPosition;
     public float RoadLength => meshRenderer.bounds.size.z;
-
 
     public void Initialize(RoadController roadController)
     {
