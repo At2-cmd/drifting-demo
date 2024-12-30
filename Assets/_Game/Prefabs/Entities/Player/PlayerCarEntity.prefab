@@ -88,14 +88,16 @@ MonoBehaviour:
   carDriftData:
     defaultSpeed: 10
     pressedSpeed: 20
+    maxPressedSpeed: 30
     speedLerpFactor: 15
     swerveSpeed: 15
-    swerveLimit: 5
+    swerveLimit: 4
     driftRotation: 30
     rotationSmoothness: 0.1
     releasedRotationSmoothness: 0.05
     wheelTurnAngle: 50
     wheelTurnSmoothness: 0.2
+    pressedMaxSpeedLerpDuration: 10
 --- !u!114 &4446950716801813160
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,6 +25,8 @@ public class PlayerCarEntity : MonoBehaviour
     private Vector3 _initialPosition;
     private Transform _transform;
     private bool _isCarInteractable;
+    private float _pressedSpeedTimer;
+    private bool _isPressing;
     public void Initialize()
     {
         carCrashSimulator.Initialize();
@@ -60,20 +62,40 @@ public class PlayerCarEntity : MonoBehaviour
 
     private void DetermineTargetSpeedByInput()
     {
-        _targetSpeed = _inputDataProvider.IsPressing ? carDriftData.PressedSpeed : carDriftData.DefaultSpeed;
+        if (_inputDataProvider.IsPressing)
+        {
+            if (!_isPressing)
+            {
+                _isPressing = true;
+                _pressedSpeedTimer = 0f;
+            }
+
+            // Gradually increase speed to maxPressedSpeed
+            _pressedSpeedTimer += Time.deltaTime;
+            float lerpFactor = Mathf.Clamp01(_pressedSpeedTimer / carDriftData.PressedMaxSpeedLerpDuration);
+            _targetSpeed = Mathf.Lerp(carDriftData.PressedSpeed, carDriftData.MaxPressedSpeed, lerpFactor);
+        }
+        else
+        {
+            _isPressing = false;
+            _targetSpeed = carDriftData.DefaultSpeed;
+        }
+
+        // Smoothly interpolate current speed
         _currentSpeed = Mathf.Lerp(_currentSpeed, _targetSpeed, carDriftData.SpeedLerpFactor * Time.deltaTime);
     }
+
 
     private void HandleSwerve()
     {
         float swerveDelta = _inputDataProvider.HorizontalInput * carDriftData.SwerveSpeed * Time.deltaTime;
 
         _currentSwerve += swerveDelta;
-        _currentSwerve = Mathf.Clamp(_currentSwerve, -carDriftData.SwerveLimit, carDriftData.SwerveLimit);
-
-        Vector3 targetPosition = new Vector3(_lastPosition.x + _currentSwerve, _transform.position.y, _transform.position.z);
+        float clampedX = Mathf.Clamp(_lastPosition.x + _currentSwerve, -carDriftData.SwerveLimit, carDriftData.SwerveLimit);
+        Vector3 targetPosition = new Vector3(clampedX, _transform.position.y, _transform.position.z);
         _transform.position = targetPosition;
     }
+
 
     private void HandleRotation()
     {
