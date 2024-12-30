@@ -91,12 +91,14 @@ public class PlayerCarEntity : MonoBehaviour
     private void HandleSwerve()
     {
         float swerveDelta = _inputDataProvider.HorizontalInput * carDriftData.SwerveSpeed * Time.deltaTime;
-
         _currentSwerve += swerveDelta;
-        float clampedX = Mathf.Clamp(_lastPosition.x + _currentSwerve, -carDriftData.SwerveLimit, carDriftData.SwerveLimit);
+        float targetX = _lastPosition.x + _currentSwerve;
+        float clampedX = Mathf.Clamp(targetX, -carDriftData.SwerveLimit, carDriftData.SwerveLimit);
+        _currentSwerve = clampedX - _lastPosition.x;
         Vector3 targetPosition = new Vector3(clampedX, _transform.position.y, _transform.position.z);
         _transform.position = targetPosition;
     }
+
 
 
     private void HandleRotation()
